@@ -11,7 +11,7 @@ function PrimaryButton({ children, onPress }) {
          ? [styles.buttonInnerContainer, styles.pressed] 
          : styles.buttonInnerContainer
           }
-        onPresss={onPress}
+        onPress={onPress}
       >
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
