@@ -1,4 +1,4 @@
-import { React } from React;
+import React  from 'react';
 import { Text, StyleSheet } from 'react-native';
 
 function Title({children}) {
