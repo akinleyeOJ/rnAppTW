@@ -43,7 +43,7 @@ export default function App() {
      setGuessRounds(0);
   }
   
-  let screen = <StartG ameScreen onPickedNumber={pickedNumberHandler}/>
+  let screen = <StartGameScreen onPickedNumber={pickedNumberHandler}/>
 
   if (userNumber) {
     screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler}/>
