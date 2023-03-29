@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import {Text, View, StyleSheet, Alert,SafeAreaView } from 'react-native';
+import {Text, View, StyleSheet, Alert,SafeAreaView, FlatList } from 'react-native';
 
 import Title from '../components/ui/Title';
 import NumberContainer from '../components/game/NumberContainer';
@@ -23,6 +23,7 @@ let maxBoundary = 100;
 function GameScreen({userNumber, onGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
   useEffect(() => {
     if (currentGuess === userNumber) {
@@ -53,6 +54,7 @@ function GameScreen({userNumber, onGameOver }) {
       }
       const newRndNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
       setCurrentGuess(newRndNumber);
+      setGuessRounds(prevGuessRounds => [newRndNumber, ...prevGuessRounds, ])
   }
   return (
     <View style={styles.screen}>  
@@ -75,6 +77,12 @@ function GameScreen({userNumber, onGameOver }) {
         </View>
        </View>
       </Card>
+
+      <View>
+        {/* {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text>)} */}
+        {/* using flat list to map instead */}
+
+      </View>
     </View>
     
   )
